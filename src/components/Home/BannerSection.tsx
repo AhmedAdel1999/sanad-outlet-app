@@ -20,6 +20,7 @@ const BannerSection = () => {
   const [isLg, setIsLg] = useState(true);
 
   const banners = [heroBanner, heroBanner, heroBanner];
+  console.log("testttt");
 
   useEffect(() => {
     const handleResize = () => {
