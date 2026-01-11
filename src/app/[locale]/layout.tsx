@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Montserrat } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import QueryClientWrapper from "@/contexts/queryClient";
 import { Toaster } from "react-hot-toast";
 import logo from "@/public/logo.svg";
 import "swiper/css";
@@ -9,7 +10,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/mousewheel";
 import "./globals.css";
-import QueryClientWrapper from "@/contexts/queryClient";
 
 const roboto = Roboto({
   variable: "--font-roboto",
