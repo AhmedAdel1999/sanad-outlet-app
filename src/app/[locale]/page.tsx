@@ -32,7 +32,7 @@ export default async function Home() {
   console.log(country);
   return (
     <div>
-      <BannerSection />
+      <BannerSection country={country} />
       <AskDoctor />
       <Brands />
       <NiveaBanner />
