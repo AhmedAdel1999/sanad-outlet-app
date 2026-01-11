@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/apis": ["./src/apis"],
+      "@/app": ["./src/app"],
+      "@/components": ["./src/components"],
+      "@/constants": ["./src/constants"],
+      "@/contexts": ["./src/contexts"],
+      "@/helpers": ["./src/helpers"],
+      "@/hooks": ["./src/hooks"],
+      "@/i18n": ["./src/i18n"],
+      "@/icons": ["./src/icons"],
+      "@/lib": ["./src/lib"],
+      "@/store": ["./src/store"],
+      "@/types": ["./src/types"],
+      "@/public/*": ["./public/*"],
+      "@/assets/*": ["./public/assets/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
