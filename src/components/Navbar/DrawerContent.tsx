@@ -21,7 +21,7 @@ const DrawerContentBox = () => {
         <DetectLocation className="py-2 px-4" isVisible />
       </div>
 
-      <Link href={"/favorites"} className="border-b-2 p-3 border-grey-100">
+      <Link href={"/favourites"} className="border-b-2 p-3 border-grey-100">
         <div className="py-2 px-4 flex items-center gap-2">
           <FavouriteSvg />
           <span className="typo-regular2">{t("navbar.favorites")}</span>

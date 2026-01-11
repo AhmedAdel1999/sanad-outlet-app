@@ -36,16 +36,16 @@ const Page = () => {
         defaultValue="phone"
         className="w-full gap-8!"
       >
-        <TabsList className="w-full bg-grey-100 rounded-[11111px] p-1 h-[52px]">
+        <TabsList className="w-full bg-grey-100 rounded-full p-1 h-[52px]">
           <TabsTrigger
             value="phone"
-            className="cursor-pointer p-[8px_16px] rounded-[11111px] h-11 text-grey-800 data-[state=active]:text-black typo-semibold"
+            className="cursor-pointer p-[8px_16px] rounded-full h-11 text-grey-800 data-[state=active]:text-black typo-semibold"
           >
             {t("auth.phone")}
           </TabsTrigger>
           <TabsTrigger
             value="email"
-            className="cursor-pointer p-[8px_16px] rounded-[11111px] h-11 text-grey-800 data-[state=active]:text-black typo-semibold"
+            className="cursor-pointer p-[8px_16px] rounded-full h-11 text-grey-800 data-[state=active]:text-black typo-semibold"
           >
             {t("auth.email")}
           </TabsTrigger>
@@ -176,7 +176,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
       <PrimaryBtn
         text={t("auth.login")}
-        className="flex-1 heading6-small rounded-full h-[52px]"
+        className="heading6-small rounded-full h-[52px] w-full"
         type="submit"
       />
       <div className="flex items-center justify-center gap-1 typo-regular2">

@@ -12,8 +12,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     //py-25 max-md:py-6
     <div className="flex min-h-screen">
-      <div className="h-[inherit] flex flex-col flex-1 justify-between">
-        <div className="flex items-center justify-between max-md:p-[24px_20px] md:p-6 lg:p-[24px_32px]">
+      <div className="h-[inherit] flex flex-col flex-1 w-full justify-between">
+        <div className="flex items-center  justify-between max-md:p-[24px_20px] md:p-6 lg:p-[24px_32px]">
           <Link href={"/"}>
             <Image alt="logo" src={Logo.src} width={192} height={52} />
           </Link>
