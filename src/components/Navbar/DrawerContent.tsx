@@ -4,7 +4,6 @@ import DetectLocation from "./DetectLocation";
 import { ChangeScreenModeSvg, FavouriteSvg } from "@/icons/global";
 import { getCategories } from "@/constants/categories";
 import { Link } from "@/i18n/routing";
-import { Button } from "../ui/button";
 import LangItems from "./Langitems";
 import {
   Accordion,
@@ -12,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import LoginButton from "./LoginButton";
 
 const DrawerContentBox = () => {
   const t = useTranslations();
@@ -56,17 +56,7 @@ const DrawerContentBox = () => {
       </div>
 
       <div className="py-2 px-6">
-        <Link href={"/sign-in"}>
-          <Button
-            className="heading6-small cursor-pointer h-13 w-full rounded-[11111px] p-[8px_16px]"
-            style={{
-              background:
-                "linear-gradient(85deg, var(--color-primary-500, #21BF73) -6.74%, var(--colors-secondary-500, #2EC1AC) 123.06%)",
-            }}
-          >
-            {t("navbar.login")}
-          </Button>
-        </Link>
+        <LoginButton />
       </div>
     </div>
   );

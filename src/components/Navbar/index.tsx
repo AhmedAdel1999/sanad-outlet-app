@@ -9,20 +9,21 @@ import UserBtn from "./UserBtn";
 const Navbar = () => {
   return (
     <nav className="p-6 rounded-[64px] bg-white">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex  flex-wrap items-center justify-between gap-4">
         {/* Left Section: Logo, Location, Search */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center grow gap-6">
           <NavbarLogo />
           <DetectLocation />
           <SearchBox />
         </div>
 
         {/* Right Section: Desktop Actions & Login */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           <DesktopActions />
           <MobileActions />
-          {/* <LoginButton /> */}
-          <UserBtn />
+          <div className="hidden md:block">
+            <LoginButton />
+          </div>
         </div>
       </div>
     </nav>

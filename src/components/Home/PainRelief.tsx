@@ -22,7 +22,7 @@ const PainRelief = () => {
     <div className="flex flex-col gap-11 max-md:gap-8 max-md:py-8 max-md:ps-4 md:py-16 md:ps-6 lg:p-[64px_32px]">
       <div className="flex items-center justify-between max-md:pe-4 md:pe-6">
         <h5 className="heading5 max-md:heading6">{t("home.painRelief")}</h5>
-        <Link href={"/"} className="flex items-center gap-2">
+        <Link href={"/categories"} className="flex items-center gap-2">
           <span className="typo-regular2 text-grey-500">
             {t("common.view_all")}
           </span>

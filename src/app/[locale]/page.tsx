@@ -29,10 +29,11 @@ export default async function Home() {
 
   const headersList = headers();
   const country = (await headersList).get("x-user-country");
-  console.log(country);
+  const city = (await headersList).get("x-vercel-ip-city");
+  const region = (await headersList).get("x-vercel-ip-region");
   return (
     <div>
-      <BannerSection country={country} />
+      <BannerSection country={country} city={city} region={region} />
       <AskDoctor />
       <Brands />
       <NiveaBanner />

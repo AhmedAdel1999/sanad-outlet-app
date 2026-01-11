@@ -21,7 +21,7 @@ const UserBtn = () => {
             background:
               "linear-gradient(85deg, var(--Colors-Primary-500, rgba(33, 191, 115, 0.08)) -6.74%, var(--Colors-Secondary-500, rgba(46, 193, 172, 0.08)) 123.06%)",
           }}
-          className="cursor-pointer flex items-center gap-2 h-13 rounded-full ltr:p-[8px_16px_8px_4px] rtl:p-[8px_4px_8px_16px]"
+          className="cursor-pointer w-full flex shrink-0 grow items-center gap-2 h-13 rounded-full ltr:p-[8px_16px_8px_4px] rtl:p-[8px_4px_8px_16px]"
         >
           <Image
             alt="profile img"
@@ -30,7 +30,9 @@ const UserBtn = () => {
             height={44}
             className="rounded-full"
           />
-          <span className="typo-regular2">{t("navbar.myAccount")}</span>
+          <p className="typo-regular2 flex-1 text-start">
+            {t("navbar.myAccount")}
+          </p>
           <ArrowDown />
         </button>
       </PopoverTrigger>

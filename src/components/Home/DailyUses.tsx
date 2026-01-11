@@ -24,7 +24,7 @@ const DailyUses = () => {
         <h5 className="heading5 max-md:heading6">
           {t("home.dailyEssentials")}
         </h5>
-        <Link href={"/"} className="flex items-center gap-2">
+        <Link href={"/categories"} className="flex items-center gap-2">
           <span className="typo-regular2 text-grey-500">
             {t("common.view_all")}
           </span>

@@ -8,6 +8,24 @@ import { CurrencyDisplay } from "@/helpers/getCurrency";
 const ProductCard = ({ item, productImg }: { item: any; productImg: any }) => {
   const t = useTranslations();
   const navigate = useRouter();
+
+  // Handle add to cart without navigation
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent parent onClick from firing
+    // Add your cart logic here
+    console.log("Added to cart:", item.id);
+  };
+
+  // Handle quantity changes without navigation
+  const handleQuantityChange = (
+    e: React.MouseEvent,
+    action: "increase" | "decrease"
+  ) => {
+    e.stopPropagation(); // Prevent parent onClick from firing
+    // Add your quantity logic here
+    console.log(action, item.id);
+  };
+
   return (
     <div
       onClick={() => navigate.push(`/products/${item.id}`)}
@@ -50,16 +68,23 @@ const ProductCard = ({ item, productImg }: { item: any; productImg: any }) => {
       </div>
       {item.inCart ? (
         <div className="flex items-center justify-between">
-          <Button className="cursor-pointer flex items-center justify-center bg-grey-100! rounded-[12px] w-11 h-11 p-[8px_16px]">
+          <Button
+            onClick={(e) => handleQuantityChange(e, "increase")}
+            className="cursor-pointer flex items-center justify-center bg-grey-100! rounded-[12px] w-11 h-11 p-[8px_16px]"
+          >
             <PlusSvg />
           </Button>
           <span className="typo-semibold3">2</span>
-          <Button className="cursor-pointer flex items-center justify-center bg-grey-100! rounded-[12px] w-11 h-11 p-[8px_16px]">
+          <Button
+            onClick={(e) => handleQuantityChange(e, "decrease")}
+            className="cursor-pointer flex items-center justify-center bg-grey-100! rounded-[12px] w-11 h-11 p-[8px_16px]"
+          >
             <MinusSvg />
           </Button>
         </div>
       ) : (
         <Button
+          onClick={handleAddToCart}
           className="cursor-pointer p-[8px_16px] h-11 rounded-[12px] typo-regular2 text-white"
           style={{
             background:

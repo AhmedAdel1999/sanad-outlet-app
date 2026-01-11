@@ -14,13 +14,21 @@ import { getCategories } from "@/constants/categories";
 import { Link } from "@/i18n/routing";
 import Navbar from "../Navbar";
 
-const BannerSection = ({ country }: { country: string | null }) => {
+const BannerSection = ({
+  country,
+  city,
+  region,
+}: {
+  country: string | null;
+  city: string | null;
+  region: string | null;
+}) => {
   const t = useTranslations();
   const [isMd, setIsMd] = useState(false);
   const [isLg, setIsLg] = useState(true);
 
   const banners = [heroBanner, heroBanner, heroBanner];
-  console.log(country);
+  console.log(country, city, region);
 
   useEffect(() => {
     const handleResize = () => {
