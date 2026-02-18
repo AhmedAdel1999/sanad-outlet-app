@@ -1,15 +1,20 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useLocale, useTranslations } from "next-intl";
 import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PrimaryBtn from "@/components/PrimaryBtn";
 import { ArrowRightSvg, LockKeySvg, MailSvg } from "@/icons/global";
 import SaudiLogo from "@/assets/saudi-flag.png";
-import Link from "next/link";
-import PrimaryBtn from "@/components/PrimaryBtn";
+import salla from "@salla.sa/twilight";
+import { useMutation } from "@tanstack/react-query";
+import { requester } from "@/lib/requester";
+import { AUTH_API_ENDPOINTS } from "@/endpoints/auth";
+import authApi from "@/lib/api-client/auth";
 
 const Page = () => {
   const t = useTranslations();
@@ -67,6 +72,18 @@ const AuthForm = ({ type }: { type: string }) => {
   const locale = useLocale();
   const [showPassword, setShowPassword] = useState(false);
 
+  const { mutate: loginUser, isPending } = useMutation({
+    mutationFn: async (data: any) =>
+      requester({
+        endpoint: AUTH_API_ENDPOINTS.login,
+        options: { data },
+        locale: "ar"
+      }),
+    onSuccess: (data) => {
+      console.log(data)
+    }
+  })
+
   type FormValues = {
     email?: string;
     phone?: string;
@@ -81,8 +98,27 @@ const AuthForm = ({ type }: { type: string }) => {
     mode: "all",
   });
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     console.log(data);
+    authApi.login({
+      type: 'mobile',
+      phone: '555555555',
+      country_code: 'SA'
+    })
+    // const res = await fetch("/api/auth/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     type: 'mobile',
+    //     phone: '555555555',
+    //     country_code: 'SA'
+    //   }),
+    // });
+
+    // const resData = await res.json();
+    // console.log(resData)
   };
 
   return (

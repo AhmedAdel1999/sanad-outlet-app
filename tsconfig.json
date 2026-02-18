@@ -23,6 +23,8 @@
       "@/*": ["./src/*"],
       "@/apis": ["./src/apis"],
       "@/app": ["./src/app"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/app/*": ["./src/app/*"],
       "@/components": ["./src/components"],
       "@/constants": ["./src/constants"],
       "@/contexts": ["./src/contexts"],

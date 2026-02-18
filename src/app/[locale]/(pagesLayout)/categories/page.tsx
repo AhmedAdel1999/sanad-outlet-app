@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainPagination from "@/components/Pagination";
 import { useTranslations } from "next-intl";
 import Breadcrumb from "@/components/Breadcrumb.tsx";
@@ -26,6 +26,7 @@ const Page = () => {
       description: t("home.productExample"),
     }))
   );
+
 
   const childrens = [
     { id: 1, text: t("home.byHealthCondition") },

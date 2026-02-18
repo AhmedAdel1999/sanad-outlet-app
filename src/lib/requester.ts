@@ -1,7 +1,7 @@
+// src/lib/requester.ts
 import { useStore } from "@/store";
 import { Endpoint } from "@/types/global";
 import axios, { AxiosError } from "axios";
-import { useLocale } from "next-intl";
 
 export function requester<T>({
   endpoint,
@@ -9,6 +9,7 @@ export function requester<T>({
   options,
   token,
   responseType,
+  locale,
 }: {
   endpoint: Endpoint;
   replace?: { [key: string]: string };
@@ -19,10 +20,11 @@ export function requester<T>({
   token?: string;
   queryParams?: { [key: string]: string };
   responseType?: any;
+  locale?: string; // ✅ optional
 }): Promise<T> {
   const { method } = endpoint;
   const { logout } = useStore();
-  const locale = useLocale();
+  // ❌ remove: const locale = useLocale();
 
   const { parsedURL } = parseRequestURL({
     endpoint,
@@ -33,19 +35,19 @@ export function requester<T>({
   return axios({
     url: parsedURL,
     data: options?.data,
-    headers: token
-      ? {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-          "ACCEPT-LANGUAGE": locale,
-        }
-      : {},
+    headers: {
+      ...(token && {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      }),
+      ...(locale && { "ACCEPT-LANGUAGE": locale }), // ✅ only if provided
+    },
     method,
     ...(responseType && { responseType }),
   })
     .then((res: any) => res.data)
     .catch((e: AxiosError) => {
-      //@ts-ignore
+      // @ts-ignore
       if (token && e.response?.data.message == "Invalid Token") {
         logout();
       }

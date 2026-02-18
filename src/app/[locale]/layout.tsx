@@ -46,9 +46,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${roboto.variable} ${montserrat.variable} ${
-          locale === "ar" ? "font-montserrat" : "font-roboto"
-        } antialiased bg-gray-0`}
+        className={`${roboto.variable} ${montserrat.variable} ${locale === "ar" ? "font-montserrat" : "font-roboto"
+          } antialiased bg-gray-0`}
       >
         <QueryClientWrapper>
           <NextIntlClientProvider messages={messages}>

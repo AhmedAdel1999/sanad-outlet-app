@@ -12,7 +12,6 @@ import FAQ from "@/components/Home/FAQ";
 import NiveaBanner from "@/components/Home/NiveaBanner";
 import PainRelief from "@/components/Home/PainRelief";
 import RegularCategories from "@/components/Home/RegularCategories";
-import { PRODUCT_API_ENDPOINTS } from "@/endpoints/api";
 import { useRequester } from "@/hooks/useRequester";
 import { headers } from "next/headers";
 
